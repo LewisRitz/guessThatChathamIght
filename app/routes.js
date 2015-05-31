@@ -34,7 +34,7 @@ module.exports = function(app) {
 			responseJSON = cursor;
 			//console.log("PHOTO: "+JSON.stringify(responseJSON));
 			//console.log("the file name: "+responseJSON[0].PhotoUrl);
-			res.sendfile(responseJSON[0].PhotoUrl, {root: './public/profileImages/'});
+			res.sendFile(responseJSON[0].PhotoUrl, {root: './public/profileImages/'});
 		}).limit(1);
 		//console.log(__dirname+);
 		//res.sendfile(fileName, {root: './public/'});

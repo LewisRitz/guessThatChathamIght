@@ -20,6 +20,8 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 	$scope.restartTheList = function() {
 		$scope.getANewPerson();
 		$scope.showListCompleteForm = false;
+		$scope.numberCorrect = 0;
+		$scope.numberTried = 0;
 	};
 
 	$scope.checkAnser = function(identifier){

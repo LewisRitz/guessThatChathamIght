@@ -10,7 +10,39 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <script type="text/javascript" src="/testController"></script>
 <style>
-	.profileImageWrapper { display: inline-block; }
+	.profileImageWrapper { margin-right: auto; margin-left: auto; width: 252px; }
+	.gameWrapper { margin-left: auto; margin-right: auto; }
+	h1,h2 { text-align: center; }
+	.rowWidthObject { width: 100%; display: block; }
+	.NextPersonButton { margin-left: auto; margin-right: auto; width: 200px; padding-left: 20px; }
+	.PlayAgainButton { margin-left: auto; margin-right: auto; width: 200px; padding-left: 20px; }
+	.btn {
+		background: #3498db;
+		background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+		background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+		background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+		background-image: -o-linear-gradient(top, #3498db, #2980b9);
+		background-image: linear-gradient(to bottom, #3498db, #2980b9);
+		-webkit-border-radius: 11;
+		-moz-border-radius: 11;
+		border-radius: 11px;
+		text-shadow: 4px 1px 20px #666666;
+		font-family: Courier New;
+		color: #ffffff;
+		font-size: 21px;
+		padding: 4px 20px 4px 20px;
+		text-decoration: none;
+	}
+
+	.btn:hover {
+		background: #3cb0fd;
+		background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+		text-decoration: none;
+	}
 </style>
 </head>
 <body ng-controller="homePageController">
@@ -24,8 +56,10 @@
 
 
 	<div class="gameWrapper" ng-show="!(showListCompleteForm)" ng-hide="(showListCompleteForm)">
-		<div class="profileImageWrapper">
-			<img ng-src="/profilePhoto/{{profileId}}"></img>
+		<div class="rowWidthObject">
+			<div class="profileImageWrapper">
+				<img ng-src="/profilePhoto/{{profileId}}"></img>
+			</div>
 		</div>
 		<div class="possibleAnswersWrapper" ng-show="!(showAnswerResults)" ng-hide="showAnswerResults">
 			<div ng-repeat="names in wrongNames">
@@ -39,7 +73,11 @@
 			<div class="incorrectAnswer" ng-show="!(theyAnsweredCorrect)" ng-hide="(theyAnsweredCorrect)">
 				<h1>YOU DOOFUS!</h1>
 			</div>
-			<button ng-click="getANewPerson()">Next Person</button>
+			<div class="rowWidthObject">
+				<div class="NextPersonButton">
+					<button class="btn" ng-click="getANewPerson()">Next Person</button>
+				</div>
+			</div>
 			<h2>{{firstName+' '+lastName}}</h2>
 			<h5>{{ description }}</h5>
 		</div>
@@ -52,7 +90,11 @@
 	<div class="finishedFormWrapper" ng-show="showListCompleteForm" ng-hide="!(showListCompleteForm)">
 		<h1>Congrats! You completed the list!!</h1>
 		<h2>You answered {{numberCorrect}} out of {{numberTried}} correctly</h2>
-		<button ng-click="restartTheList()">Play Again!</button>
+		<div class="rowWidthObject">
+			<div class="PlayAgainButton">
+				<button class="btn" ng-click="restartTheList()">Play Again!</button>
+			</div>
+		</div>
 	</div>
 	<!-- <form>
 	First Name: <input type="text" ng-model="profileFirstName"></input><br /><br />
