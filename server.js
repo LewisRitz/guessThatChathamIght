@@ -21,6 +21,15 @@ mongoose.connect(configDB.url);
 // // 	app.use(express.cookieParser());n
 // // 	app.use(express.bodyParser());
 
+
+
+
+/////////////
+/////////////
+
+/////////////
+/////////////
+
 // // 	app.set('view engine', 'ejs');
 
 // // 	app.use(express.session({
