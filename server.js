@@ -1,7 +1,6 @@
 // app.js
 var express = require('express'),
 app = express(),
-port = process.env.PORT || 3000,
 mongoose = require('mongoose'),
 pspt = require('passport'),
 bodyParser = require('body-parser'),
@@ -86,7 +85,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // 	console.log(err);
 // });
 
-var server = app.listen(port, function(){
+var server = app.listen(process.env.PORT || 3000, function(){
 	var host = server.address().address;
 	var port = server.address().port;
 
