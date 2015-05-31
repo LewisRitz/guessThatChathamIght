@@ -17,6 +17,7 @@
     "mongoskin": "*",
     "express-session": "^1.11.2",
     "bcryptjs": "^2.1.0",
-    "bcrypt-nodejs": "0.0.3"
+    "bcrypt-nodejs": "0.0.3",
+    "ejs": "^2.3.1"
   }
 }
