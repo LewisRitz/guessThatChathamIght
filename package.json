@@ -16,6 +16,7 @@
     "mongodb": "^1.4.38",
     "mongoskin": "*",
     "express-session": "^1.11.2",
-    "bcryptjs": "^2.1.0"
+    "bcryptjs": "^2.1.0",
+    "bcrypt-nodejs": "0.0.3"
   }
 }
