@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en" ng-app="chathamApp"> <!--<![endif]-->
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/angular"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script type="text/javascript" src="/testController"></script>
+<style>
+	.profileImageWrapper { display: inline-block; }
+</style>
+</head>
+<body ng-controller="homePageController">
+	<h1>Guess this Chatham Ight !!</h1>
+	<!-- <h1>This is the input profile page</h1>
+	<h2>{{ testValue }}</h2> -->
+
+	<!-- <h2>{{firstName+' '+lastName}}</h2> -->
+	<!-- <h5>{{ description }}</h5>
+	<h2>{{image2}}</h2> -->
+
+
+	<div class="gameWrapper" ng-show="!(showListCompleteForm)" ng-hide="(showListCompleteForm)">
+		<div class="profileImageWrapper">
+			<img ng-src="/profilePhoto/{{profileId}}"></img>
+		</div>
+		<div class="possibleAnswersWrapper" ng-show="!(showAnswerResults)" ng-hide="showAnswerResults">
+			<div ng-repeat="names in wrongNames">
+				<h2 ng-click="checkAnser(names.id)">{{names.Name}}</h2>
+			</div>
+		</div>
+		<div class="resultsWrapper" ng-show="(showAnswerResults)" ng-hide="!(showAnswerResults)">
+			<div class="correctAnswer" ng-show="(theyAnsweredCorrect)" ng-hide="!(theyAnsweredCorrect)">
+				<h1>IIIGGGHHTTT!</h1>
+			</div>
+			<div class="incorrectAnswer" ng-show="!(theyAnsweredCorrect)" ng-hide="(theyAnsweredCorrect)">
+				<h1>YOU DOOFUS!</h1>
+			</div>
+			<button ng-click="getANewPerson()">Next Person</button>
+			<h2>{{firstName+' '+lastName}}</h2>
+			<h5>{{ description }}</h5>
+		</div>
+		<!-- <img ng-src="/profilePhoto/Joe Siu"><img>
+
+		<!-- <img src="/profilePhoto/Bob_Newman"></img>
+		<img src="/profilePhoto/Matt O'Leary"></img> -->
+		<br /><br /><br /><br />
+	</div>
+	<div class="finishedFormWrapper" ng-show="showListCompleteForm" ng-hide="!(showListCompleteForm)">
+		<h1>Congrats! You completed the list!!</h1>
+		<h2>You answered {{numberCorrect}} out of {{numberTried}} correctly</h2>
+		<button ng-click="restartTheList()">Play Again!</button>
+	</div>
+	<!-- <form>
+	First Name: <input type="text" ng-model="profileFirstName"></input><br /><br />
+	Last Name: <input type="text" ng-model="profileLastName"></input><br /><br />
+	Image Path: <input type="text" ng-model="profileImagePath"></input><br /><br />
+	<textarea rows="10" cols="60" ng-model="profileDescription"></textarea><br /><br />
+
+
+	<button ng-click="createANewProfile()">Make A New Thing</buttom>
+	</form> -->
+</body>
+</html>
