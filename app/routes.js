@@ -1,4 +1,4 @@
-module.exports = function(app, passport) {
+module.exports = function(app) {
 	var exec = require("child_process").exec,
 	fileSystem = require('fs'),
 	path = require('path'),

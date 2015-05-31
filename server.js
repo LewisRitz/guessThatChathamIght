@@ -72,7 +72,7 @@ app.use(session({
 // //app.use(pspt.session());
 // //app.use(flash());
 
-require('./app/routes.js')(app, pspt);
+require('./app/routes.js')(app);
 
 app.get('/', function(req, res){
 	// if(req.session.lastPage) {
