@@ -32,3 +32,22 @@ FirstName: Joe
 LastName: Siu
 FirstName: Kathy
 LastName: Williams
+
+
+var Profile = [
+{"FirstName":"Steve","LastName":"Castleton","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Castleton_Steve_252x288.png"},
+{"FirstName":"Brian","LastName":"Conly","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2015/03/Conly_Brian_252x288.png"},
+{"FirstName":"Amol","LastName":"Dhargalkar","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Dhargalkar_Amol.20130221.IMG_16531.jpg"},
+{"FirstName":"Dan","LastName":"Gentzel","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Gentzel_Dan.20130306.IMG_21211.jpg"},
+{"FirstName":"David","LastName":"Hall","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Hall_Dave_252x288.png"},
+{"FirstName":"Matthew","LastName":"Henry","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/06/Henry_Matt_252x288.png"},
+{"FirstName":"Jason","LastName":"Hoffnagle","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Hoffnagle_Jason_252x288.png"},
+{"FirstName":"David","LastName":"Lowe","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/06/Lowe_Dave_252x288.png"},
+{"FirstName":"Clark","LastName":"Maxwell","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Maxwell_Clark_252x288.png"},
+{"FirstName":"Ted","LastName":"McCullough","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/McCollough_Ted.20130306.IMG_2071.jpg"},
+{"FirstName":"Bob","LastName":"Newman","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Newman_Bob.20130306.IMG_21051.jpg"},
+{"FirstName":"Matt","LastName":"O'Leary","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Leary_Matthew_20140128.IMG_91231.jpg"},
+{"FirstName":"Jose","LastName":"Sabastro","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Sabastro_Jose.20130301.IMG_1997.jpg"},
+{"FirstName":"Joe","LastName":"Siu","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2014/05/Siu_Joe.20130101.IMG_08631.jpg"},
+{"FirstName":"Kathy","LastName":"Williams","ProfileImage":"http://www.chathamfinancial.com/wp-content/uploads/2015/05/Williams_Kathy_252x288.png"}
+]

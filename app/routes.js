@@ -42,9 +42,9 @@ module.exports = function(app) {
 	});
 
 	app.post('/CreateProfile', function(req, res){
-		console.log('create profile called');
-		console.log(JSON.stringify(req.query));
-		var count = Profile.count()+1;
+		//console.log('create profile called');
+		//console.log(JSON.stringify(req.query));
+		//var count = Profile.count()+1;
 		var max = 300, min = 0;
 		//console.log(util.inspect(req));
 		var newProfile = new Profile({
@@ -107,9 +107,10 @@ module.exports = function(app) {
 	// });
 
 	app.get('/getThreeRandomNames', function(req, res) {
-		var rand1 = Math.random();
-		var rand2 = Math.random();
-		var rand3 = Math.random();
+		var max = 300, min = 0;
+		var rand1 = Math.random()*(max - min)+min;
+		var rand2 = Math.random()*(max - min)+min;
+		var rand3 = Math.random()*(max - min)+min;
 		var people = [];
 		var profileArray = [];
 		// console.log('prev profile: '+req.session.previousProfileUsed.FirstName);
@@ -292,7 +293,8 @@ module.exports = function(app) {
 	});
 
 	app.get('/randomProfile', function(req, res) {
-		var rand = Math.random();
+		var max = 300, min = 0;
+		var rand = Math.random()*(max - min)+min;
 		req.session.wrongAnswerProfiles = [];
 		//console.log('here: '+rand);
 		//findARandomProfileLTE(rand);

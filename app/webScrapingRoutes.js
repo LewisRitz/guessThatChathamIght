@@ -3,6 +3,7 @@ module.exports = function(app) {
 
 var http = require("http");
 var cheerio = require("cheerio");
+var path = require("path");
 
 // Utility function that downloads a URL and incvokes callback with the data
 function download(url, callback){
@@ -57,18 +58,119 @@ app.get('/downloadWebpage', function(req, res){
 			// 	}
 			// 	//console.log($(e)['0'].attribs.src);
 			// });
-
-			$("li.section-2").each(function(i, e){
+			var listOfProfiles = [];
+			$("li.section-1").each(function(i, e){
 				//console.log("here");
+				var profileObject = {};
 				for(var i=0;i<$(e)['0'].children.length;i++){
-					console.log($(e)['0'].children[i]);
-					// if(($(e)['0'].children[i].name === 'img') || (($(e)['0'].children[i].attribs.class === 'img-title list'))){
-					// 	console.log($(e)['0'].children[i]);
-					// }
+					//console.log($(e)['0'].children[i]);
+					if($(e)['0'].children[i].attribs === undefined){} else {
+						if(($(e)['0'].children[i].name === 'img')){
+
+							//console.log($(e)['0'].children[i].attribs.src);
+							profileObject.ProfileImage = $(e)['0'].children[i].attribs.src;
+						} else if (($(e)['0'].children[i].attribs.class === 'img-title list')){
+							for(var x=0;x<$(e)['0'].children[i].children.length;x++){
+								if(x===0){ 
+									//console.log('FirstName: '+($(e)['0'].children[i].children[x].data)); 
+									profileObject.FirstName = $(e)['0'].children[i].children[x].data;
+								}
+				 				else if(x===2) { 
+				 					//console.log('LastName: '+$(e)['0'].children[i].children[x].data); 
+				 					profileObject.LastName = $(e)['0'].children[i].children[x].data;
+				 				}
+								//console.log($(e)['0'].children[i]);
+							}
+						}
+					}
 				}
+				listOfProfiles.push(profileObject);
 				//if($(e)['0'].children)
 				//console.log($(e)['0'].children);
 			});
+			$("li.section-2").each(function(i, e){
+				//console.log("here");
+				var profileObject = {};
+				for(var i=0;i<$(e)['0'].children.length;i++){
+					//console.log($(e)['0'].children[i]);
+					if($(e)['0'].children[i].attribs === undefined){} else {
+						if(($(e)['0'].children[i].name === 'img')){
+
+							//console.log($(e)['0'].children[i].attribs.src);
+							profileObject.ProfileImage = $(e)['0'].children[i].attribs.src;
+						} else if (($(e)['0'].children[i].attribs.class === 'img-title list')){
+							for(var x=0;x<$(e)['0'].children[i].children.length;x++){
+								if(x===0){ 
+									//console.log('FirstName: '+($(e)['0'].children[i].children[x].data)); 
+									profileObject.FirstName = $(e)['0'].children[i].children[x].data;
+								}
+				 				else if(x===2) { 
+				 					//console.log('LastName: '+$(e)['0'].children[i].children[x].data); 
+				 					profileObject.LastName = $(e)['0'].children[i].children[x].data;
+				 				}
+								//console.log($(e)['0'].children[i]);
+							}
+						}
+					}
+				}
+				listOfProfiles.push(profileObject);
+				//if($(e)['0'].children)
+				//console.log($(e)['0'].children);
+			});
+			// $("li.section-3").each(function(i, e){
+			// 	//console.log("here");
+			// 	var profileObject = {};
+			// 	for(var i=0;i<$(e)['0'].children.length;i++){
+			// 		//console.log($(e)['0'].children[i]);
+			// 		if($(e)['0'].children[i].attribs === undefined){} else {
+			// 			if(($(e)['0'].children[i].name === 'img')){
+
+			// 				//console.log($(e)['0'].children[i].attribs.src);
+			// 				profileObject.ProfileImage = $(e)['0'].children[i].attribs.src;
+			// 			} else if (($(e)['0'].children[i].attribs.class === 'img-title list')){
+			// 				for(var x=0;x<$(e)['0'].children[i].children.length;x++){
+			// 					if(x===0){ 
+			// 						//console.log('FirstName: '+($(e)['0'].children[i].children[x].data)); 
+			// 						profileObject.FirstName = $(e)['0'].children[i].children[x].data;
+			// 					}
+			// 	 				else if(x===2) { 
+			// 	 					//console.log('LastName: '+$(e)['0'].children[i].children[x].data); 
+			// 	 					profileObject.LastName = $(e)['0'].children[i].children[x].data;
+			// 	 				}
+			// 					//console.log($(e)['0'].children[i]);
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// 	listOfProfiles.push(profileObject);
+			// 	//if($(e)['0'].children)
+			// 	//console.log($(e)['0'].children);
+			// });
+
+			var max = 300, min = 0;
+			for(var i=0;i<listOfProfiles.length;i++){
+				//console.log(JSON.stringify(listOfProfiles[i]));
+				//console.log(listOfProfiles[i].FirstName+' '+listOfProfiles[i].LastName+'/whoAreThey'+path.extname(listOfProfiles[i].ProfileImage));
+				//console.log(util.inspect(req));
+
+
+
+				// var thePhotoUrl = listOfProfiles[i].FirstName+' '+listOfProfiles[i].LastName+'/whoAreThey'+path.extname(listOfProfiles[i].ProfileImage);
+				// var newProfile = new Profile({
+				// 	FirstName 		:  		listOfProfiles[i].FirstName,				//req.query.firstName,
+				// 	LastName   		:  		listOfProfiles[i].LastName,					//req.query.lastName,
+				// 	About			: 		'',											//req.query.description,
+				// 	PhotoUrl 		: 		thePhotoUrl,								//req.query.imageUrl,
+				// 	randomNumb		:  		Math.random()*(max - min)+min
+				// });
+				// newProfile.save(function(err){
+				// 	if(err) console.log(err);
+				// 	else { console.log("Profile Saved!"); }
+				// });
+				//res.send(newProfile);
+
+			}
+			// console.log(JSON.stringify('Profiles: '+listOfProfiles));
 
 			// $("li.section-3").each(function(i, e){
 			// 	console.log("here");
