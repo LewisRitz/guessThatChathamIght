@@ -14,9 +14,9 @@
 	.gameWrapper { margin-left: auto; margin-right: auto; }
 	h1,h2 { text-align: center; }
 	.rowWidthObject { width: 100%; display: block; }
-	.NextPersonButton { margin-left: auto; margin-right: auto; width: 200px; padding-left: 20px; }
-	.PlayAgainButton { margin-left: auto; margin-right: auto; width: 200px; padding-left: 20px; }
-	.btn {
+	.NextPersonButton { margin-left: auto; margin-right: auto; width: 120px; padding-left: 0px; }
+	.PlayAgainButton { margin-left: auto; margin-right: auto; width: 120px; padding-left: 0px; }
+	/*.btn {
 		background: #3498db;
 		background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
 		background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -42,8 +42,9 @@
 		background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
 		background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 		text-decoration: none;
-	}
+	}*/
 </style>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body ng-controller="homePageController">
 	<h1>Guess this Chatham Ight !!</h1>
@@ -75,7 +76,7 @@
 			</div>
 			<div class="rowWidthObject">
 				<div class="NextPersonButton">
-					<button class="btn" ng-click="getANewPerson()">Next Person</button>
+					<button class="pure-button pure-button-primary" ng-click="getANewPerson()">Next Person</button>
 				</div>
 			</div>
 			<h2>{{firstName+' '+lastName}}</h2>
@@ -92,7 +93,7 @@
 		<h2>You answered {{numberCorrect}} out of {{numberTried}} correctly</h2>
 		<div class="rowWidthObject">
 			<div class="PlayAgainButton">
-				<button class="btn" ng-click="restartTheList()">Play Again!</button>
+				<button class="pure-button pure-button-primary" ng-click="restartTheList()">Play Again!</button>
 			</div>
 		</div>
 	</div>

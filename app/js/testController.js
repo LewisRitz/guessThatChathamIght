@@ -34,7 +34,6 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 		} else {
 			console.log("NO DOOFUS!");
 			$scope.theyAnsweredCorrect = false;
-
 		}
 		//console.log("id: "+identifier);
 	};
@@ -71,6 +70,7 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 			//$scope.wrongNames.push($scope.firstName+' '+$scope.lastName);
 			shuffle($scope.wrongNames);
 			console.log('names: '+JSON.stringify($scope.wrongNames));
+			//setTimeout(function(){$scope.showAnswerResults = false;},200);
 			$scope.showAnswerResults = false;
 		});
 		// $http({
@@ -104,6 +104,7 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 	};
 
 	$scope.getANewPerson = function() {
+		$scope.showAnswerResults = false;
 		$http({
 			method: 'GET',
 			url: '/randomProfile'
