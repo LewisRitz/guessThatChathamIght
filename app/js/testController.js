@@ -36,8 +36,8 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 
 			var arrayWithNoMissingImages = [];
 			var numberOfIncompleteProfiles = 0;
-			//for (var i=0; i<data.length; i++){
-			for (var i=0; i<6; i++){			// used for testing
+			for (var i=0; i<data.length; i++){
+			//for (var i=0; i<6; i++){			// used for testing
 				// we want to exlude profiles with image sources that end with /no_image 
 				var regExpression = /^no_image/g;
 
