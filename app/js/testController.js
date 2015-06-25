@@ -36,8 +36,8 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 
 			var arrayWithNoMissingImages = [];
 			var numberOfIncompleteProfiles = 0;
-			for (var i=0; i<data.length; i++){
-			//for (var i=0; i<6; i++){			// used for testing
+			//for (var i=0; i<data.length; i++){
+			for (var i=0; i<6; i++){			// used for testing
 				// we want to exlude profiles with image sources that end with /no_image 
 				var regExpression = /^no_image/g;
 
@@ -180,10 +180,12 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 	};
 
 	$scope.restartTheList = function() {
-		$scope.getANewPerson();
 		$scope.showListCompleteForm = false;
 		$scope.numberCorrect = 0;
 		$scope.numberTried = 0;
+		$scope.activeArrayOfPeople = JSON.parse(JSON.stringify($scope.completeHistoricArrayOfPeople));
+		$scope.getARandomPerson();
+
 	};
 
 	$scope.checkAnser = function(identifier){
