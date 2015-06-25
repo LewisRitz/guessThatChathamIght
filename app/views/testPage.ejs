@@ -154,7 +154,7 @@ a.pure-button-selected {
 	<!-- <h2>{{firstName+' '+lastName}}</h2>
 	<h5>{{ description }}</h5> -->
 	<!-- <h2>{{image2}}</h2> -->
-
+	<h2>Score: {{numberCorrect}}/{{numberTried}}</h2>
 
 	<div class="gameWrapper" ng-show="!(showListCompleteForm)" ng-hide="(showListCompleteForm)">
 		<div class="rowWidthObject">
@@ -164,7 +164,7 @@ a.pure-button-selected {
 		</div>
 		<div class="possibleAnswersWrapper" ng-show="!(showAnswerResults)" ng-hide="showAnswerResults">
 			<div ng-repeat="names in wrongNames">
-				<h2 ng-click="checkAnser(names.id)">{{names.Name}}</h2>
+				<h2 ng-click="checkAnser(names.id)">{{names.name}}</h2>
 			</div>
 		</div>
 		<div class="resultsWrapper" ng-show="(showAnswerResults)" ng-hide="!(showAnswerResults)">
@@ -176,7 +176,7 @@ a.pure-button-selected {
 			</div>
 			<div class="rowWidthObject">
 				<div class="NextPersonButton">
-					<button class="pure-button pure-button-primary" ng-click="getANewPerson()">Next Person</button>
+					<button class="pure-button pure-button-primary" ng-click="getARandomPerson()">Next Person</button>
 				</div>
 			</div>
 			<h2>{{firstName+' '+lastName}}</h2>

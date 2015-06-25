@@ -7,7 +7,8 @@ var ProfileSchema = mongoose.Schema({
 	LastName   		:  		String,
 	About			: 		String,
 	PhotoUrl 		: 		String,
-	randomNumb		:     	Number 
+	PhotoSource		: 		String,
+	randomNumb		:     	Number
 });
 
 

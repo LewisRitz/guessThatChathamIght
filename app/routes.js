@@ -6,6 +6,7 @@ module.exports = function(app) {
 	User = require('../app/models/user');
 	Profile = require('../app/models/profile')
 	var util = require('util');
+	var http = require('http');
 
 	app.get('/TestPage', function(req, res){
 		console.log('Request handler for "/TestPage" called');
@@ -67,15 +68,43 @@ module.exports = function(app) {
 		Profile.find(function (err, profiles){
 			if (err) { console.log(err); }
 			responseJSON = profiles;
-			res.send(responseJSON);
+			//console.log(JSON.stringify(responseJSON, null, "\t"));
+			res.send(JSON.stringify(responseJSON,null, 4));
 			res.end();
 		});
 	});
 
-	// app.get('/deleteAllProfiles', function(req, res) {
-	// 	Profile.remove({}, function(err, removed) {console.log("removed all surveys"); });
-	// 	Profile.find(function(err, profiles){ if(err){console.log(err); } responseJSON = profiles; res.send(responseJSON); })
-	// });
+	app.get('/getPageDataFromChatham', function(req, res){
+		console.log('request for chatam page data called');
+		var responseJSON = "";
+		var options = {
+			host: 'chathamfinancial.com',
+			path: '/ajax-requests/ajax_leadership_team.php?action=get_members&mtt_cat=96&mtt_key=&mtt_alpha=&mtt_paged=2'
+		};
+		callback = function(response) {
+			var str = '';
+			response.on('data', function(chunk){
+				str += chunk;
+			});
+			response.on('end', function(){
+				var options = {
+					host: 'chathamfinancial.com',
+					path: '/ajax-requests/ajax_leadership_team.php?action=get_members&mtt_cat=96&mtt_key=&mtt_alpha=&mtt_paged=3'
+				};
+
+
+				responseJSON = str;
+				res.send(responseJSON);
+				res.end();
+			});
+		};
+		responseJSON = http.get(options, callback).end();
+	});
+
+	app.get('/deleteAllProfiles', function(req, res) {
+		Profile.remove({}, function(err, removed) {console.log("removed all surveys"); });
+		Profile.find(function(err, profiles){ if(err){console.log(err); } responseJSON = profiles; res.send(responseJSON); })
+	});
 
 	// app.get('/deleteASpecificProfile', function(req, res) {
 	// 	Profile.find({ _id: '5569e9864575d1ea1365ac21'}).remove().exec();
