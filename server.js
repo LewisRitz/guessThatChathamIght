@@ -73,7 +73,7 @@ app.use(session({
 // //app.use(flash());
 
 require('./app/routes.js')(app);
-require('./app/webScrapingRoutes.js')(app);
+//require('./app/webScrapingRoutes.js')(app);
 
 app.get('/', function(req, res){
 	// if(req.session.lastPage) {
