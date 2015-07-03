@@ -7,7 +7,7 @@ bodyParser = require('body-parser'),
 session = require('express-session');
 // flash = require('connect-flash'),
 // fileSystem = require('fs'),
-// path = require('path'),
+var path = require('path');
 // exec = require("child_process").exec;
 
 configDB = require('./config/database.js');
@@ -75,6 +75,8 @@ app.use(session({
 require('./app/routes.js')(app);
 //require('./app/webScrapingRoutes.js')(app);
 
+app.use("/public", express.static(path.join(__dirname, 'public')));
+
 app.get('/', function(req, res){
 	// if(req.session.lastPage) {
 	// 	res.write('Last page was: '+req.session.lastPage + '. ');
@@ -88,6 +90,7 @@ app.get('/', function(req, res){
 	}
 });
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -95,7 +98,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // 	console.log(err);
 // });
 
-var server = app.listen(process.env.PORT || 3000, function(){
+var server = app.listen(process.env.PORT || 3030, function(){
 	var host = server.address().address;
 	var port = server.address().port;
 

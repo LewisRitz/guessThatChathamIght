@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="b4bApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/angular"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script type="text/javascript" src="/b4bController"></script>
+<style>
+body, html { margin: 0px; padding: 0px; height: 100%; width: 100%; }
+h1, h2, h3, h4, h5 { font-weight: 400; }
+.header { width: 100%; background-color: #C0D9D9; height: 30px; position: fixed; margin-top: 0px; z-index: 5; }
+.header h1 { 
+	margin: 0px; padding: 0px; font-size: 25px; text-align: center;
+	display: inline-block; width: 33%;
+ }
+.header h2 {
+	margin: 0px; padding: 0px; font-size: 25px;	text-align: center;
+	display: inline-block; width: 31%;
+}
+.navBar  { width: 100%; background-color: #005377; height: 30px;  position: fixed; margin-top: 30px; z-index: 5; }
+.navBar .buttonWrapper {
+	 display: inline-block; width: 60%; margin-left: 350px;
+}
+.navBar .buttonWrapper .button {
+	display: inline-block; width: 31%; margin-left: auto; margin-right: auto;
+}
+.navBar .buttonWrapper .button:hover {
+	background-color: red;
+}
+.navBar .buttonWrapper .button h3 {
+	margin: 0px; padding: 0px; font-size: 25px; text-align: center; color: #FFF;
+}
+.logoOverlay {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	background-color: #C0D9D9;
+	position: fixed;
+	left: -60px;
+	top: -60px;
+	z-index: 50;
+}
+.logoOverlay img {
+	position: absolute;
+	left: 60px;
+	top: 60px;
+}
+.mainBody {
+	width: 80%; margin-left: auto; margin-right: auto; background-color: #F0F0F0; padding-left: 40px; padding-right: 40px;
+}
+.mainBody .subSection { margin-left: 8%; }
+.mainBody .subSection h1, 
+.mainBody .subSection h2, 
+.mainBody .subSection h3, 
+.mainBody .subSection h4, 
+.mainBody .subSection h5 {
+	text-align: left; 
+}
+.mainBody .showMoreButton:hover { color: red; font-weight: 900; }
+
+.headerBuffer { width: 80%; height: 100px;  margin-left: auto; margin-right: auto; background-color: #F0F0F0; padding-left: 40px; padding-right: 40px; }
+
+.pageIcon { width: 100px; height: 100px; display: inline-block; margin-top: 35px; }
+.pageHeader { font-size: 50px; display: inline-block; margin:0px; vertical-align: top; margin-top: 57px; margin-left: 15px; }
+
+.secondaryTitle { font-weight: 600; }
+.showMoreContent { display: none; }
+
+.footerBuffer { width: 80%; height: 100px; margin-right: auto; margin-left: auto; background-color: #F0F0F0; padding-left: 40px; padding-right: 40px; }
+
+.footer { width: 100%; height: 500px; background-color: #C0D9D9; }
+.footerIcon { margin-top: 30px; 
+	padding-left: -moz-calc(50% - 75px);
+	padding-left: -webkit-calc(50% - 75px);
+	padding-left: calc(50% - 75px); 
+	padding-right: 40% }
+.footer h1 { font-size: 30px; font-weight: 600; text-align: center; }
+.footer h2 { text-align: center; }
+
+.mainSubHeading { font-size: 30; font-weight: 600; }
+</style>
+
+</head>
+<body ng-controller="b4bController">
+	<div class="logoOverlay">
+		<img src="https://bike4beds.org/img/logoClear2.png" 
+			ng-click="changePageTo('aboutUsPage')"></img>
+	</div>
+	<div class="header">
+		<div class="Title">
+			<!-- <h2>We Bike</h2> -->
+			<h1>Bike 4 Beds</h1>
+			<!-- <h2>We Donate</h2> -->
+		</div>
+	</div>
+	<div class="navBar">
+		<div class="buttonWrapper">
+			<div class="button" ng-click="changePageTo('SpringBikeEvent')">
+				<h3>Spring Bike Event</h3>
+			</div>
+			<div class="button" ng-click="changePageTo('FallBikeEvent')">
+				<h3>Fall Bike Event</h3>
+			</div>
+			<div class="button" ng-click="changePageTo('aboutUsPage')">
+				<h3>About Us</h3>
+			</div>
+		</div>
+	</div>
+	<div class="headerBuffer"></div>
+
+
+<!--  ---------------------------------------------------------------------------------------------------
+
+This is where the About Us Page Begins
+
+-->
+
+
+	<div class="aboutUsPage"
+		ng-show="showThisPage('aboutUsPage')" ng-hide="hideThisPage('aboutUsPage')">
+		<div class="mainBody">
+			<h1 class="pageHeader">About Us</h1>
+
+			<h5>Through group bike rides, Bike4Beds raises funds and gives 100% of the donations to empower partnered organizations of underprivileged communities.</h5>
+
+			<h2 class="mainSubHeading">Our Goal</h2>
+			<h5>Each year we donate the money we raise to that years cause. The past 6 years we have raised over $20,000 for our beneficiaries.</h5>
+
+			<h2 class="mainSubHeading">Our Charity</h2>
+			<h5>This year we are riding to support the academic and health services of the Cavaillon Orphange and the All of God’s Children Orphanage in Haiti.</h5>
+
+			<h5>100% of the funds raised by this Bike4Beds event will assist the Cavailon Orphange provide tuition, school supplies, school uniforms, food, and medical items for their orphans as well as fund an exciting IT education program at the All of God’s Children Orphanage elementary school.</h5>
+
+			<h2 class="mainSubHeading">The Bike Ride</h2>
+			<h5>This upcoming event includes a variety of scenic routes, ranging from 25 miles to a full century ride from eastern NJ down to Wildwood.</h5>
+
+			<h5>This is a fun bike ride all the way from the countryside to the boardwalk; many of our friends and family return every year.</h5>
+
+			<h5>Join us for an early spring tour of what the garden state has to offer cyclists of all ages and abilities.</h5>
+
+			<h2 class="mainSubHeading">Your Suppport</h2>
+			<h5>Bike4Beds is able to make a positive impact thanks to the generosity of our donors, enthusiasm from our bike riders, and selfless assistance from our volunteers.</h5>
+
+			<h5>We are deeply grateful to everyone who has helped us in the previous years in our efforts to assist the Cavaillon Orphanage, the Dispensaire de Hiheatro in Hiheatro, Togo and the Maluti Hospital in the Kingdom of Lesotho.</h5>
+
+			<h5>Register to bike, sign up to volunteer, sponsor a biker, or simply like us on Facebook and help us continue to support schools and hospitals, and dispensaries in communities across the world.</h5>
+
+			<h5>Bike4Beds is a nonprofit organization that hosts a Fall and Spring bike event every year to raise funds for the current years cause. Our first event was in 2008. Matt Ritz, founder of Bike4Beds, had the idea to organize a bike ride for charity when he learned of the deteriorated conditions of the equipment at the Maluti Hospital, particularly of the patients’ beds. Akoua Enow was in her second year raising AIDS awareness with the Peace Corps. and communicated the need for assistance at the Hospital. Our first bike ride through New Jersey was successful and we purchased 42 beds for the hospital and its patients! The ‘Bike4Beds’ name stuck and membership grew each year as event popularity spread. Bike4Beds was granted Federal Non-Profit status on March 1, 2011. In our 6 years we have donated over $20,000 dollars to our beneficiaries. We continue to update our events with new routes and options, in order to engage more bikers and encourage new membership.</h5>
+
+			<h5>In 2009 we donated supplies to the Dispensaire de Hiheatrowe. We were made aware of the need for assistance from a close family member, Kossiwa Lonergan. Kossiwa had first hand exposure to the dispensaire and its’ current condition while visiting her home country of Togo in 2009. In 2010 we began our four year running sponsorship of the Cavaillon Orphanage, run by the Sisters of Charity of Saint-Hyacinthe. Maguey O’Connor, a good family friend, suggested this beneficiary from her experience growing up in Haiti. The Cavaillon Orphange relies solely on donations to support their 25 students. Donating to this organization for four years in a row allows our bikers, sponsors and volunteers to feel focused in their efforts to make the world a better place, one community at a time.</h5>
+
+			<h5>Bike4Beds recently brought on a team of chief officers, tasked with taking our organization to the next level. We are working towards expanding our options and events, gaining new membership and ultimately expanding our scope of support. Get ready for exciting new changes coming soon!</h5>
+
+			<h1 class="pageHeader">Finances</h1>
+			<h3>Through group bike rides, Bike4Beds raises funds and gives 100% of the donations to empower partnered organizations of underprivileged communities.</h5>
+			<h2 class="mainSubHeading"><b>How do we give 100% donations to the cause?</b><h2>
+			<h3>We believe in volunteerism. Excellent talent that can be harnessed by people who want to share this talent towards causes they believe in. We don’t have any salaried employees. However, we still accrue costs like paying to host this site.</h3>
+			<h3>We break our donations down into two categories (Restricted and Unrestricted). All donations are categorized as restricted except for biking event fees (this amount is noted during the sign-up process), and Bike4Bed board member gifts.</h3>
+			<h3>1)	Restricted – All donations are categorized as restricted except for those deemed unrestricted. 100% of these funds go directly to the cause.</h3>
+			<h3>2)	Unrestricted - Biking event fees (this amount is noted during the sign-up process), and Bike4Bed board member gifts. These pay for the event costs, and operating costs.</h3>
+			
+			<h1 class="pageHeader">2014 Financial Documents</h1>
+			<h3><a href="https://www.dropbox.com/s/ybzmojicurazzow/B4B-2014-SFP.pdf?dl=0">
+				<b>2014 Statement of Financial Position</b></a></h3>
+			<h3><a href="https://www.dropbox.com/s/28bgg9yytg78wvo/B4B-2014-SOA.pdf?dl=0">
+				<b>2014 Statement of Activities</b></a></h3>
+
+			<h1 class="pageHeader">2013 Financial Documents</h1>
+			<h3><a href="https://www.dropbox.com/s/8qv0j3u3yssej3y/2013-B4B-SFP.docx?dl=0">
+				<b></b>2013 Statement of Financial Position</a></h3>
+			<h3><a href="https://www.dropbox.com/s/2ldhvbacji40224/B4B-2013-SOA.docx?dl=0">
+				<b>2013 Statement of Activities</b></a></h3>
+
+
+
+
+			<h1 class="pageHeader">The Team</h1>
+			<h2>Us</h2>
+
+
+			<h1 class="pageHeader">Previous Years</h1>
+			<h2 class="mainSubHeading">2008: Maluti Aventist Hospital Lesotho</h2>
+			<h3>My niece (Akoua) is a Peace Core Volunteer in Lesotho; her main objective is to combat the HIV/AIDS proliferation. She works for the Maluti Aventist Hospital, which has a serious need for hospital beds.</h3>
+
+			<h3>The hospital beds are foam mattresses with a plastic covering. The plastic is torn or missing on a large majority of the beds allowing bodily fluid to seep into the foam. Akoua's mother and father visited her this past winter and couldn’t believe how disgusting and unhealthy the situation actually is. In a small effort to help the Maluti Hospital, we want to outfit the hospital with new sanitary beds.</h3>
+
+			<h3>We are biking 100 miles in an effort to raise money for the Maluti Aventist Hospital to purchase new beds. If you are interested in donating or biking, please email bikeforbeds@gmail.com. One Hundred Percent of all donations will go to the Maluti Aventist Hospital.</h3>
+
+			<h3>With a shortage of trained personnel and medical supplies, Lesotho is severely afflicted by HIV/AIDS. According to recent estimates, the prevalence is about 29%, one of the highest in the world. The United Nations projects that this will rise to 36% within fifteen years, resulting in a sharp drop in life expectancy. According to the Lesotho Bureau of Statistics, in 2001 life expectancy was estimated at forty-eight years for men and fifty-six for women. Recent statistics estimate about thirty-seven years. Many children have lost parents. Traditionally lavish funerals leave survivors with another burden.”</h3>
+
+			<h2 class="mainSubHeading">2009: Dispensaire de Hiheatro</h2>
+			<h3>My last visit to Togo was February 09, and I was very surprised by what I saw. We visited the Dispensaire de Hiheatro (child birthing and first aid dispensary). I could not believe what I saw, it was hard to imagine that some people have so much and others have almost nothing. The dispensaire was very run down but the staff was still able to take care of many people. The baby scale was destroyed, and they didn’t even have a thermometer. I was so ashamed to see that patients shared bed pans. They also needed some beds and clean linens. I talked to Matt when I came home and we quickly concluded that we should do a bike ride fundraiser to help the people at the dispensaire, back in my home country of Togo. Please help us. Anything you can donate will be extremely useful to the people of Togo.</h3>
+			<h3>Thank you very much, Kossiwa Akakpo (Lonergan)</h3>
+
+			<h2 class="mainSubHeading">2010: Cavaillon Orphanage</h2>
+			<h3>The Cavaillon Orphanage is located in the South of Haiti, where they foster 25 girls from the ages of 4 through 12. The orphanage is owned and operated by the Sisters of Charity of Saint-Hyacinthe.</h3>
+
+			<h3 class="mainSubHeading">A note from Sr Diane Beaudoin:</h3>
+
+			<h3>We opened our orphanage for little girls in December 2008. The first two little girls who arrived, GisËle and Fafan, came from a city about three hours drive from Cavaillon where the orphanage is located. Fafan was three years old and GisËle was four. Leaving their homes and their families to find themselves with strangers was not easy, but once they arrived they seemed to adjust well. A few weeks after their arrival, the sister and the driver who had brought them to the orphanage arrived for a visit. When Fafan and GisËle saw them they both went to hide. When at last they were found and asked why they were hiding, they both said they were afraid that the man and the sister had come to take them back home, and they did not want to leave the orphanage. Here they have food everyday, lots of other little girls to play with, toys to play with and loving adults to care for them. For the first months that they were there every time the sister and the driver came, they would hide until they finally realized that no one was going to take them away from the orphanage.</h3>
+
+			<h3>One of the first places the little girls would take visitors to the orphanage, was to their bedrooms to show them their beds. They would then proceed to tell the visitors that they each had a bed to sleep in. For most of these little girls it was the first time they slept in a bed.</h3>
+
+			<h3>When Fafan came to the orphanage at age three, she was suffering from malnutrition. One of the effects of malnutrition caused her black hair to turn reddish and her hair just would not grow. The other girls would call her a boy because of her very short hair. This made Fafan very unhappy, the more so because all the other girls had braids and bright ribbons in their hair and she did not. It took a while before we figured out what was making her so unhappy. So Mama Maggie would take the inch long hair and twist it as much as she could and attached a bright ribbon to her hair. Fafan was so happy, she refound her good humor and found new confidence in herself and she began to blossom. Today, two years later she is a happy child with a ready smile and loving personality.</h3>
+
+			<h1 class="pageHeader">Contact Us</h1>
+			<h2 class="mainSubHeading">Email Correspondence:</h2>
+			<h3>The best way to reach Bike4Beds is to email us at Bike4Beds@gmail.com . We will respond to your email within 24 hours.</h3>
+			<h2 class="mainSubHeading">Mail Correspondence:</h2>
+			<h3>Matt Ritz Bike4Beds, 229 Mountain Park Road, Allentown, PA 18103</h3>
+		</div>
+	</div>
+
+
+<!--  ---------------------------------------------------------------------------------------------------
+
+This is where the Fall Bike Event Page Begins
+
+-->
+	<div class="FallBikeEvent" 
+		ng-show="showThisPage('FallBikeEvent')" ng-hide="hideThisPage('FallBikeEvent')">
+
+		<div class="mainBody">
+			<img class="pageIcon" src="/public/FallBikeIcon.jpg"></img>
+			<h1 class="pageHeader">Fall Bike Fundraiser</h1>
+			<div class="subSection">
+				Please join us and help celebrate our eighth year of biking and raising money.
+			</div>
+			<!-- <h3 class="showMoreButton">Show More</h3> -->
+			
+			<img class="pageIcon" src="/public/CharityIcon.png"></img>
+			<h1 class="pageHeader">The Cause: The Cavaillon Orphanage</h1>
+			<div class="subSection" id="FallCause">
+				<h3>We are riding to support the academic and health services of the Cavaillon Orphanage and the All of God's Children Orphanage in Haiti.</h3>
+				<h3>100% of the funds raised by this Bike4Beds event will assist the Cavailon Orphange by providing tuition, school supplies, school uniforms, food, and medical items for their orphans as well as by funding an exciting IT education program at the All of God's Children Orphanage elementary school.</h3>
+				<h3 class="showMoreButton" 
+					ng-click="showHide('FallCauseExp', 'FallCause')">Show More</h3>
+			</div>
+			<div class="subSection showMoreContent" id="FallCauseExp">
+				<h3>We are riding to support the academic and health services of the Cavaillon Orphanage and the All of God's Children Orphanage in Haiti.</h3>
+				<h3>100% of the funds raised by this Bike4Beds event will assist the Cavailon Orphange by providing tuition, school supplies, school uniforms, food, and medical items for their orphans as well as by funding an exciting IT education program at the All of God's Children Orphanage elementary school.</h3>
+				<h2>We should have more content here</h2>
+				<h3 class="showMoreButton"
+					ng-click="showHide('FallCause', 'FallCauseExp')">Show Less</h3>
+			</div>
+
+			<img class="pageIcon" src="/public/CalendarIcon.png"></img>
+			<h1 class="pageHeader">Sunday September 6th, 2015</h1>
+			<div class="subSection">
+				<h2>8:00 am or 9:30 am to like 6 pm.. I think</h2>
+			</div>
+
+
+			<!-- <h3 class="showMoreButton">Show More</h3> -->
+			<img class="pageIcon" src="/public/MakeADifference.png"></img>
+			<h1 class="pageHeader">Make A Difference</h1>
+			<div class="subSection" id="FallBike">
+				<h1 class="secondaryTitle">Bike</h1>
+				<h2>
+					<ol>
+						<li>Choose Your Ride</li>
+						<li>Directions to The Starting Line</li>
+						<li>Complete Waiver</li>
+					</ol>
+				</h2>
+				<h1 class="secondaryTitle">Sponsor A Biker</h1>
+				<h1 class="secondaryTitle">Pledge To The Cause</h1>
+				<h1 class="secondaryTitle">Volunteer</h1>
+
+				<h3 class="showMoreButton" style="margin-bottom: 0px;"
+					ng-click="showHide('FallBikeExp', 'FallBike')">Show More</h3>
+			</div>
+			<div class="subSection showMoreContent" id="FallBikeExp">
+				<h3 class="showMoreButton" 
+					ng-click="showHide('FallBike', 'FallBikeExp')">Show Less</h3>
+				<h1 class="secondaryTitle">Bike</h1>
+				<h3>We invite people of all ages and biking abilities to join us on a lively, spring bike ride.  We offer options for everyone.  Choose from two different bike routes of length 30 and 60 miles.  There will be multiple rest stops with attendants, beverages, and health bars.</h3>
+				<h3>Relax with refreshments after the ride at the velodrome.  Everyone is welcome to join us for a post picnic party.</h3>
+
+				<h2 class="secondaryTitle">Choose Your Ride</h2>
+				<h3>30 Mile Ride</h3>
+				<h4><b>Starting at 9:30 AM</b>, this route boasts of relatively flat scenic country roads where you are more likely to see a horse and buggy than an automobile.  There is a rest stop at mile 15, where you will not only get water, gatoraid, snacks, and pizza, but also a complimentary beer at the Bowers Hotel (you must be 21 to get the beer).</h4>
+				<h3>60 Mile Ride</h3>
+				<h4><b>Starting at 8:00 AM</b>, this ride boasts of beautiful country roads that take you out of the valley and into the hills.  There are two rest stops at miles 34 and 47.  This ride had 3,500 feet of gain that will give you quite a challenge as you traverse the very scenic and quiet country roads.</h4>
+				<h2 class="secondaryTitle">Getting To The Starting Line</h2>
+				<h3>The race begins and ends at the Lehigh Valley Velodrome.  There will be refreshments and parking available here, free of charge.  Everyone is invited to a picnic afterwords.</h3>
+				<h3>Check out these links about 
+					<a href="http://thevelodrome.com/"><b>The Leghigh Valley Velodrome</b></a>
+					 as well as <a href="http://thevelodrome.com/us/directions/"><b>Directions</b></a> on how to get there.  Please note the starting time differences for the two races.  Come early so you have time to get your bike ready.
+				</h3>
+				<h2 class="secondaryTitle">Complete The Waiver</h2>
+				<h3>Once you have a good idea of which ride you are doing and your shirt size, follow the link below to sign up.</h3>
+				<h3>Remember, the earlier you sign up, the better chances you will have at being sponsored!</h3>
+				<h1><a href="https://bike4beds.org/bikes"><b>Biker Regestration Form</b></a></h1>
+
+				<br /><br />
+				<h1 class="secondaryTitle">Sponsor A Biker</h1>
+				<h3>Follow the link below to sponsor a biker</h3>
+				<h1><a href="https://bike4beds.org/pledge"><b>Sponsor A Biker</b></a></h1>
+
+				<br /><br />
+				<h1 class="secondaryTitle">Pledge To the Cause</h1>
+				<h3>Follow the link below to pledge your support to the cause.</h3>
+				<h1><a href="https://bike4beds.org/pledge"><b>Pledge Your Support</b></a></h1>
+
+				<br /><br />
+				<h1 class="secondaryTitle">Volunteer</h1>
+				<h3>Follow the link below to volunteer.</h3>
+				<h1><a href="https://bike4beds.org/Volunteer"><b>Volunteer</b></a></h1>
+
+				<h3 class="showMoreButton" style="margin-bottom: 0px;"
+					ng-click="showHide('FallBike', 'FallBikeExp')">Show Less</h3>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--  ---------------------------------------------------------------------------------------------------
+
+This is where the Spring Bike Event Page Begins
+
+-->
+
+
+	<div clas="SpringBikeEvent"
+		ng-show="showThisPage('SpringBikeEvent')" ng-hide="hideThisPage('SpringBikeEvent')">
+
+		<div class="mainBody">
+			<img class="pageIcon" src="/public/SpringBikeIcon.png"></img>
+			<h1 class="pageHeader">Spring Bike Fundraiser</h1>
+
+			<div class="subSection">
+				Please join us and help celebrate our eighth year of biking and raising money.
+			</div>
+			<!-- <h3 class="showMoreButton">Show More</h3> -->
+			
+			<img class="pageIcon" src="/public/CharityIcon.png"></img>
+			<h1 class="pageHeader">The Cause: The Cavaillon Orphanage</h1>
+			<div class="subSection" id="SpringCause">
+				<h3>We are riding to support the academic and health services of the Cavaillon Orphanage and the All of God's Children Orphanage in Haiti.</h3>
+				<h3>100% of the funds raised by this Bike4Beds event will assist the Cavailon Orphange by providing tuition, school supplies, school uniforms, food, and medical items for their orphans as well as by funding an exciting IT education program at the All of God's Children Orphanage elementary school.</h3>
+				<h3 class="showMoreButton" 
+					ng-click="showHide('SpringCauseExp', 'SpringCause')">Show More</h3>
+			</div>
+			<div class="subSection showMoreContent" id="SpringCauseExp">
+				<h3>We are riding to support the academic and health services of the Cavaillon Orphanage and the All of God's Children Orphanage in Haiti.</h3>
+				<h3>100% of the funds raised by this Bike4Beds event will assist the Cavailon Orphange by providing tuition, school supplies, school uniforms, food, and medical items for their orphans as well as by funding an exciting IT education program at the All of God's Children Orphanage elementary school.</h3>
+				<h2>We should have more content here</h2>
+				<h3 class="showMoreButton"
+					ng-click="showHide('SpringCause', 'SpringCauseExp')">Show Less</h3>
+			</div>
+
+			<img class="pageIcon" src="/public/CalendarIcon.png"></img>
+			<h1 class="pageHeader">Saturday May 16th, 2015</h1>
+			<div class="subSection">
+				<h2>7:00 am or 9:00 am to like 6 pm or the next day at like noon</h2>
+			</div>
+
+			<img class="pageIcon" src="/public/MakeADifference.png"></img>
+			<h1 class="pageHeader">Make A Difference</h1>
+			<div class="subSection" id="SpringBike">
+				<h1 class="secondaryTitle">Bike</h1>
+				<h2>
+					<ol>
+						<li>Choose Your Ride</li>
+						<li>Transportation Home</li>
+						<li>Complete Registration Form</li>
+						<li>Make Hotel Accomodations (if you are staying overnight)</li>
+						<li>Find Sponsors to <a href=""><b>Support You</b></a> (Highly Encouraged)</li>
+						<li>Directions to The Starting Line</li>
+					</ol>
+				</h2>
+				<h1 class="secondaryTitle">Sponsor A Biker</h1>
+				<h1 class="secondaryTitle">Pledge To The Cause</h1>
+				<h1 class="secondaryTitle">Volunteer</h1>
+
+				<h3 class="showMoreButton" style="margin-bottom: 0px;"
+					ng-click="showHide('SpringBikeExp', 'SpringBike')">Show More</h3>
+			</div>
+			<div class="subSection showMoreContent" id="SpringBikeExp">
+				<h3 class="showMoreButton" 
+					ng-click="showHide('SpringBike', 'SpringBikeExp')">Show Less</h3>
+				<h1 class="secondaryTitle">Bike</h1>
+				<h3>We invite people of all ages and biking abilities to join us on a lively, spring bike ride.  We offer options for everyone.  Choose from four different bike routes ranging from 25 miles to the full century ride.</h3> 
+				<h3>There will be multiple rest stops with attendants, beverages, health bars, and wraps.</h3>
+				<h3>We have volunteers and drivers to help with bikes and transportation along the way.  Explore tranquil pinewood forests surrounded by old, weathered farmhouses with wildflours and vegetable stands in the front yard.</h3>
+				<h3>Come feel the refreshing sea breeze against your face as we ride into Avalon and down along the coast.  Sightsee the pastel cottages of Stone Harbor before crossing the bridge into Wildwood.</h3>
+				<h3>Finish up the day with the salty wind against your back as you ride down the boardwalk towards our final destination, The Fountain Motel.</h3>
+				<h3>Relax with a beer or Gatorade and good company during our post ride pizza party; before catching a ride back to your car.  Or, stay over and help us celebrate another successful bike ride to the shore!</h3>
+
+				<h3>We accommodate different biking abilities, and experience within a spectrum of routes.  All routes are clearly marked with road paint.  Bikers will be provided with cue sheets and emergency contact numbers for support volunteers.</h3>
+				<h2 class="secondaryTitle">Starting Times</h2>
+				<h3>We accomodate different biking abilities, we have two starting locations (and different starting times).</h3> 
+				<h3>1) Quarter or Half Century start at 9:00 am at St John Bosco Parish (Parish of All Saints), Millville, NJ</h3>
+				<h3>2) Metric or Full Century start at 7:00am ACME in Woodstown, NJ</h3>
+
+
+
+				<h2 class="secondaryTitle">Choose Your Ride</h2>
+				<h4>Quarter Century 25 (miles 1-12 & 44-55)</h4>
+				<h5>This is the shortest route intended for novice riders who are looking for an enjoyable Saturday morning ride through moderately flat, Jersey countryside. The first 12 miles takes you to lunch Wawa, rest your legs while you and your bike are driven to Avalon. Once we reach the coast, you can get back on the bikes for the best part of the day! Drink up the seaside sights and smells as you tap your reserves for the final 10 miles into Wildwood.</h5>
+
+
+				<h4>Half Century 50 miles (miles 1-55)</h4>
+				<h5>This route is ideal for the novice to intermediate biker who is interested in biking along the coast; but isn’t prepared for a full century ride. Enjoy biking the first The first 12 miles takes you to lunch at WAWA. After lunch, get back on your bike for the final 43 miles through the Pine Barrens and straight down the coast into Wildwood.</h5>
+
+
+				<h4>Metric Century 70 (miles 1-58 & 89-100)</h4>
+				<h5>Ideal for intermediate to experienced riders who wish to bike through the most scenic areas, but who aren’t comfortable with the full century. Enjoy the first moderately flat 30 miles through western Jersey and then get a lift in the vans to the halfway point for lunch at Wawa. After lunch, get back on your bike for the final 40 miles through the Pine Barrens and straight down the coast into Wildwood. This route offers two sizeable legs with a nice break in the middle.</h5>
+
+				<h4>Bike4Beds Century 100 (miles 1-100)</h4>
+				<h5>This route is ideal for experienced bikers who are interested in the full century ride through the width of New Jersey and down the coast into Wildwood. This is the original route that we mapped out in an effort to take riders over quiet country roads with scenic views. This moderately flat course is a good course to do your first century. Riders should train for this route. There are multiple rest stops with refreshing beverages and snacks. We will stop at Wawa for lunch. If you complete the full 100 miles, we will add your name to our new Century Club on the website!</h5>
+
+
+				<h3>Okay.. this whole page seriously needs help.  Am I trying to sign up or am I reading a brochure for a bus tour?</h3>
+
+				<h2 class="secondaryTitle">Rest Stops</h2>
+				<h3>There will be rest stops for bikers to get water, Gatorade, power bars and wraps. Please see your bike course for where the rest stops mileage or click here to see <a href="https://www.google.com/maps/d/u/0/viewer?authuser=0&authuser=0&hl=en&hl=en&mid=zQJVT_iDxSbc.kD-LktcKoK_w"><b>Rest Stops & Starting Locations</b></a>.</h3>
+
+
+
+
+				<h2 class="secondaryTitle">Transportation Options</h2>
+				<h3>Join us for the full day event or head back to the starting point after your ride. We will provide transportation for you, your bike, and your gear back to your car at the Acme in Woodstown, NJ and the St John's Parish in Millville, NJ.</h3>
+
+				<h3>Van A – Traveling back to Millville & Woodstown NJ from Wildwood, NJ at 3 - 4 pm on Saturday evening May 16th</h3>
+
+				<h3>Van B – Traveling back to Millville & Woodstown NJ from Wildwood, NJ at 7 - 8 pm on Saturday evening May 16th</h3>
+
+				<h3>Van C – Traveling back to Millville & Woodstown, NJ from Wildwood, NJ at noon on Sunday morning May 17th</h3>
+
+				<h2 class="secondaryTitle">What to Bring</h2>
+				<h3>Please bring spare inner tubes, bike helmet, and cell phone. The route is intended to have little automobile traffic, however there are a few places where the automobile traffic is heavy. Note: Helmets are required!</h3>
+
+
+				<h2 class="secondaryTitle">Hotel Accommodations</h2>
+				<h3>After the ride we will be hosting a pizza party at the Fountain Motel in Wildwood, NJ. Kick back, have a beverage and a slice of pizza; and relax after an active day in the sun! If you are staying the night, bring a bathing suit so you can cool off in the pool or the Ocean. For information on hotel accommodations please check out the links below. Don’t forget to mention that you are with the Bike for Beds organization for a preferred rate. <a href="http://www.fountainmotel.com/en/"><b>The Fountain Motel</b></a></h3>
+
+
+
+				<h3 class="showMoreButton" 
+					ng-click="showHide('SpringBike', 'SpringBikeExp')">Show Less</h3>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="footerBuffer"></div>
+	<div class="footer">
+		<img src="https://bike4beds.org/img/logoClear2.png" 
+			ng-click="changePageTo('aboutUsPage')" class="footerIcon" align="middle">
+		<h1>Bike For Beds</h1>
+		<h2>We can put the social media stuff down here as well as a 'contact us' section link</h2>
+	</div>
+</body>
+</html>

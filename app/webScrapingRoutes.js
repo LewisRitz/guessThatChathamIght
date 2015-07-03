@@ -244,7 +244,7 @@ var callbackWithPassedParameterData = function(newProfile){
 			// });
 		});
 	}
-}
+};
 
 var testFunction = function(){
 	console.log("test function");

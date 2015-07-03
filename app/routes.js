@@ -13,6 +13,11 @@ module.exports = function(app) {
 		res.render('../app/views/testPage.ejs');
 	});
 
+	app.get('/b4bPage', function(req, res){
+		console.log('Request handler for "/b4bPage" called');
+		res.render('../app/views/b4bPage.ejs');
+	});
+
 	app.get('/angular', function(req, res){
 		console.log('Request handler for "/angular" called');
 		var filePath = './node_modules/angular/angular.js';
@@ -24,6 +29,14 @@ module.exports = function(app) {
 	app.get('/testController', function(req, res){
 		console.log('Request handler for "/testController" called');
 		var filePath = './app/js/testController.js';
+		var stat = fileSystem.statSync(filePath);
+		var readStream = fileSystem.createReadStream(filePath);
+		readStream.pipe(res);
+	});
+
+	app.get('/b4bController', function(req, res){
+		console.log('Request handler for "/b4bController" called');
+		var filePath = './app/js/b4bController.js';
 		var stat = fileSystem.statSync(filePath);
 		var readStream = fileSystem.createReadStream(filePath);
 		readStream.pipe(res);
