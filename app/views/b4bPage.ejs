@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5 { font-weight: 400; }
 	margin: 0px; padding: 0px; font-size: 25px;	text-align: center;
 	display: inline-block; width: 31%;
 }
-.navBar  { width: 100%; background-color: #005377; height: 30px;  position: fixed; margin-top: 30px; z-index: 5; }
+.navBar  { width: 100%; background-color: #005377; height: 30px;  position: fixed; margin-top: 30px; z-index: 5; box-shadow: 0 9px 8px 1px gray; }
 .navBar .buttonWrapper {
 	 display: inline-block; width: 60%; margin-left: 350px;
 }
@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5 { font-weight: 400; }
 	left: -60px;
 	top: -60px;
 	z-index: 50;
+	box-shadow: 0 9px 8px 1px gray;
 }
 .logoOverlay img {
 	position: absolute;
@@ -78,6 +79,9 @@ h1, h2, h3, h4, h5 { font-weight: 400; }
 .footer h2 { text-align: center; }
 
 .mainSubHeading { font-size: 30; font-weight: 600; }
+
+.secondFooter { width: 100%; height: 40px; background-color: #005377; color: white; } 
+.secondFooter p { width: 100%; text-align: center; vertical-align: middle; margin:0px; padding-top: 10px; }
 </style>
 
 </head>
@@ -455,6 +459,9 @@ This is where the Spring Bike Event Page Begins
 			ng-click="changePageTo('aboutUsPage')" class="footerIcon" align="middle">
 		<h1>Bike For Beds</h1>
 		<h2>We can put the social media stuff down here as well as a 'contact us' section link</h2>
+	</div>
+	<div class="secondFooter">
+		<p>&copy copyright 2015 Bike For Beds co.</p>
 	</div>
 </body>
 </html>
