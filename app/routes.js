@@ -8,6 +8,11 @@ module.exports = function(app) {
 	var util = require('util');
 	var http = require('http');
 
+	app.get('/navigationSimulation', function(req, res){
+		console.log('Request handler for "/naviationSimulation" called');
+		res.render('../app/views/navigationSimulation.ejs');
+	});
+
 	app.get('/TestPage', function(req, res){
 		console.log('Request handler for "/TestPage" called');
 		res.render('../app/views/testPage.ejs');
@@ -21,6 +26,14 @@ module.exports = function(app) {
 	app.get('/angular', function(req, res){
 		console.log('Request handler for "/angular" called');
 		var filePath = './node_modules/angular/angular.js';
+		var stat = fileSystem.statSync(filePath);
+		var readStream = fileSystem.createReadStream(filePath);
+		readStream.pipe(res);
+	});
+
+	app.get('/navSimController', function(req, res){
+		console.log('Request handler for "/navSimController" called');
+		var filePath = './app/js/navSimController.js';
 		var stat = fileSystem.statSync(filePath);
 		var readStream = fileSystem.createReadStream(filePath);
 		readStream.pipe(res);

@@ -173,6 +173,124 @@ This is where the About Us Page Begins
 
 -->
 
+	<div class="pledgeForm" style="display:none;">
+		<form method="post" id="pledge-form" class="well">
+			<h1>Pledge</h1>
+			<p class="subheading">Please Enter Your Pledge Information</p>
+			<div id="block">
+				<label>First Name</label>
+				<input type="text" name="firstName" alt="First Name" id="firstName-tf" value="" class="span3 required">
+			</div>
+			<div id="block1">
+				<label>Last Name</label>
+				<input type="text" name="lastName" alt="Last Name" id="lastName-tf" value="" class="span4 required">
+			</div>
+			<div id="Street">
+				<label>Street Address</label>
+				<input type="text" name="streetAddr" alt="Street Address" id="streetAddr-tf" value="" class="span7 required">
+			</div>
+			<div id="blockCity">
+				<label>City</label>
+				<input type="text" name="city" alt="City" id="city-tf" class="span3 required">
+			</div>
+			<div id="blockState">
+				<label>State</label>
+				<select type="text" alt="State" name="state" id="stateDw" class="span2 required">
+					<option value="">Select a state</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Missippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="TN">Tennesse</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+				</select>
+			</div>
+			<div id="blockZip">
+				<label>Zip</label>
+				<input type="text" alt="Zip" name="zip" id="zip" class="span2 required">
+			</div>
+			<div id="blockEmail">
+				<label>Email Address</label>
+				<input type="text" name="email" alt="Email" id="email-tf" class="span4 required">
+			</div>
+			<div id="blockPhoneNbr">
+				<label>Phone Number</label>
+				<input type="text" name="phoneNbr" alt="Phone Number" id="phoneNbr" class="span3 required">
+			</div>
+			<div id="Street">
+				<label>Select an event to sponsor</label>
+				<select type="text" name="bikeEvent" alt="Bike Event" id="eventsDw" class="span7">
+					<option value="">Select an event</option>
+					<option value="Fall2015">Sept 6 2015 (Fall Classic Bike4Beds)</option>
+					<option value="Spring2016">May 14 2015 (Spring Classic Bike4Beds to Wildwood)</option>
+				</select>
+			</div>
+			<div id="Street">
+				<label>Select a biker to sponsor</label>
+				<select type="text" name="biker" alt="Sponsor" id="bikersDw" class="span7">
+				</select>
+			</div>
+			<div>
+				<label>Pledge Amount (dollar amount only, cents will be rounded)</label>
+				<input type="text" name="amount" alt="Amount" id="amount" class="span2 required">
+			</div>
+			<div id="paymentTypes"><p></p>
+				<label>Please select your method of payment:</label>
+				<input type="radio" name="payment[Types]" style="vertical-align: middle" val="creditCard" checked="" id="creditCard">    Credit Card<br>
+				<input type="radio" name="payment[Types]" val="check" checked="" id="check">    Check (Bike4Beds, 229 Mountain Park Rd., Allentown, PA 18103)<p></p>
+				<input type="hidden" name="paymentType" id="paymentType">
+				<input type="hidden" name="paymentStatus" id="paymentStatus">
+				<input type="hidden" name="env" value="production" id="env">
+			</div>
+			<div id="Submit">
+				<button type="submit" id="btn-login" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>	
+
 
 	<div class="aboutUsPage"
 		ng-show="showThisPage('aboutUsPage')" ng-hide="hideThisPage('aboutUsPage')">
