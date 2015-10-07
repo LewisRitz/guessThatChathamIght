@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="stiefelApp">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="/angular"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script type="text/javascript" src="/passTheStiefelController"></script>
+
+	<style>
+		html, body { margin: 0px; padding: 0px; }
+		.mainBodyContent { width: 1024px;  margin-left: auto; margin-right: auto; background-color: #E8E8E8; padding: 50px; }
+		h1, h2, h3, h4, h5, p { color: #E65C00; }
+		h1 { font-family: cursive; font-size: 60px; }
+		.navbar { position: fixed; background-color: black; height: 50px; width: 100%; padding-left: 340px; vertical-align: middle; }
+		.navbar .navButton { display: inline-block; margin-left: 14px; padding-left: 10px; padding-right: 10px; height: 50px; vertical-align: middle; text-align: center; line-height: 50px;}
+		.navbar .navButton h3 { margin: 0px; }
+		.navbar .navButton:hover { background-color: #191970; vertical-align: middle; text-align: center; line-height: 50px; }
+		.logo {width: 200px; height: 200px; position: fixed; z-index: 1000; left: 0px; top: 0px; }
+		h2 { color: #DAA520; }
+		h4 { color: #191970; }
+	</style>
+</head>
+<body ng-controller="stiefelAppController">
+	<div class="navbar">
+		<div class="navButton" ng-click="navGo('History')">
+			<h3>Stiefel History</h3></div>
+		<div class="navButton" ng-click="navGo('Game')">
+			<h3>Stiefel Game</h3></div>
+	</div>
+	<img class="logo" src="/public/6100_csm_Haller-Loewenbraeu_eee2fefc01_ea69c53088.jpg">
+	<div class="navbar_buffer"></div>
+	<div class="mainBodyContent">
+		<div class="StiefelHistory" ng-show="showHistoryPage" ng-hide="!showHistoryPage">
+			<h1>Stiefel History</h1>
+			<h2>Imbibe the Intoxicating History of the Stiefel</h2>
+			<h4>To delve into the history of the Stiefel, one must accept that genius is highly coveted and prone to imitation. In this case, the birthplace of the legendary Stiefel is claimed by more than one culture. Research has uncovered similar historical accounts in the Austrian and German annals of Stiefel lore. Although this site is based on the German Stiefel tradition, it is not overly important with whom the credit of conceiving the Stiefel is placed. Honestly!</h4>
+			<h4>The central lesson of the dual claims to the Stiefel is that the Stiefel is not only accepted by different cultures, it is held in high-enough esteem to be native to two different cultures. The Stiefel, in theory and definitely in practice, transcends cultural and ethnic boundaries, which often are seen as barriers to social interaction. At any party/event, the Stiefel can literally be passed to every person, dismissive of all stereotypes or prejudices, willing to give completely of itself for the enjoyment of all, leaving behind a wake of positive social interactions born from the shared experience of Passing the Stiefel.</h4>
+			<h4>Now, the True ‘Stiefel’ original stories …</h4>
+			<h2>The German Legend</h2>
+			<h4>The catalyst for the Stiefel, grounded in the German tradition, was of all things, war. Quite the polar opposite of what the Stiefel stands for … or is passed around for, but in a sense it could be what we all strive for. </h4>
+			<h4>During an intense battle in Europe, the exact battle and war has been lost to time, a German military commander sought to inspire, galvanize his struggling troops. With a keen mind, he understood the core motivation behind his soldier’s morale and made them a solemn promise midway through battle. “Men, as we stand upon the verge of victory or defeat, you all must believe in my commitment to you my brave countrymen. Take up your arms, and fight till victory is ours before the sun sets on our chance for glory, and you shall witness your humble commander, in your honor, savor the beer of our country in the very boots I stand in right here, right now.” Well, the very thought of this tremendous feat their commanding officer, the soldiers returned to battle with courage and grit and rallied to overcome their adversaries.</h4>
+			<h4>As the sun set on the battlefield, victory was placed at the feet of the German commander and his soldiers, who now stood in anticipation of the fulfillment of their commander’s vow. That very night, as the full moon dressed the commander in an auspicious glow, he raised in salute to his troop’s gallant fight in combat, the very boot he wore during the battle, filled to the brim with beer and drank with his men cheering on. At that very instance the boot was born … and the rest is history. The next time it came for the commander to drink from the boot, he had glassmaker fashion a glass boot — The Stiefel — which would be henceforth passed to all the men who were strong enough to fight, and strong enough to Pass the Stiefel</h4>
+			<h2>The Austrian Legend</h2>
+			<h4>In the Austrian tradition the Stiefel represents the fulfilling and replenishing elements found in the rarest of places. </h4>
+			<h4>In mid-April, a group of men and women set out on an arduous trek through the Austrian Alps to bring supplies to a mining outpost in the mountain range that suffered from the year’s extreme winter which stranded the post for months.</h4>
+			<h4>Midway into the trek’s first day, they were overcome with the insatiable desire to quench their thirst. Although, they had started with the sun well below the peaks and the dew upon the mountain grass, the day had grown hot and they began to tire as the sun grew toward its zenith in the sky. They had not anticipated such a strong sun, as the spring months offered softer highnoons and more tolerable sun. Left on the path without any beverage, even water, the possibility of satisfying the growing longing for any liquid faded away along with the town they had left that morning. Call it blind luck, or a serendipitous discovery, but as they rounded the very next pass, they happened upon a solitary hut, nestled very comfortably in a shady nook of the mountain.</h4>
+			<h4>At once their hope fluttered, but slowly waned as successive knocks on the door yielded only silence. However, just as they were turning away, an old man whipped open the door and appeared to their amazement. “Don’t go running away just yet. I was just rearranging my pantry and didn’t hear you till just now.” Well the group of weary trekkers wasted no time explaining to the old man their dilemma and pleaded for any act of kindness. The old man was more than generous, when he offered the last of his cherished ale to them all. “I can’t drink it all” he surmised “And what better than with new friends to share a beer and the beauty of the Alps.” “One small problem, I don’t have any glasses.” Well, only a brief second passed, and without pausing one of the women sat with a grace that had drained out of the rest of the group and pulled out a pair of boots from her knapsack. It has a pair that had not been worn, for she was bringing them as a gift to her sister at the outpost. “This boot will do” she said and passed it to old man, who grinned with a twinkle in his eye. “Ah, I see, let me get the ale.” So the group settled in, and enjoyed the company of the old man and each other, slowly passing the boot among each other and washing away all remnant of thirst.</h4>
+			<h4>The Stiefel was born to bring reprieve to harsh day and to bring strangers together only to part as friends. In the grand scheme of the Stiefel, it doesn’t matter with which historical account one identifies more strongly. Anyone can make their history with the Stiefel, simply by passing it to the person on their right and allowing the fun to begin. Whether one needs to celebrate a hard fought victory; relax from a hard week of school or work, or both; and whether sharing a Stiefel with old friends or new friends, the Stiefel stands to bring people together and to celebrate any and all reasons that can transpire as one holds and Passes the Stiefel.</h4>
+			<h4>Cheers!! Next, the Stiefel Game.</h4>
+		</div>
+		<div class="StiefelGame" ng-show="showGamePage" ng-hide="!showGamePage">
+			<h1>Stiefel Game</h1>
+			<h2>It’s Your Turn … The Stiefel Game</h2>
+			<h4>Time to roll up those sleeves and get serious – Passing the Stiefel is not for the faint of heart, nor is it faint of liver, fainting as the Stiefel is passed to you is definitely not permissible in the game, but let’s find out more…Prost!! Let’s Get Started…<h4>
+
+			<h2>1. Stiefel Game!!?? How is it Played?</h2>
+			<h4>A group of people 3 or more stand in a circle with a full Stiefel, one person begins the game by taking one drink from the Stiefel, after which, this person passes the Stiefel to the person on their right. The Stiefel continues to be passed around in this fashion until it is finished, which determines the loser. One would think that when playing the Stiefel game, all participants are winners, but alas every contest requires a loser. In this case, the loser is the person to the left of the individual who finished the Boot. Simply put, this person did not drink enough of the Boot (for whatever reason) and thus passed (up) their opportunity to finish the Stiefel. The loser then must either pay for the next Boot, in Germany can amount to 30 Euros or nearly 50 dollars, or has to fill up the next Boot, probably more likely. The rounds continue until:</h4>
+			<h4>A) All the beer is finished.</h4>
+			<h4>B) There is no one left standing.</h4>
+			<h4>C) The Stiefel is broken.</h4>
+			<h4>D) All of the above, which if all occurred in the same round would be the ‘Perfect Storm’ Anyway you all get the idea, but wait … before you can start, please brush up on the rules and regulations.</h4>
+			
+			<h2>2. What is the Objective?</h2>
+			<h4>Interesting question, actually the objective can vary from person to person, especially when the Stiefel is in one’s hand. But the objective of the game is NOT to be the standing to the left of the person who finishes the Stiefel.</h4>
+
+			<h2>3. How many players can ‘pass the stiefel’?</h2>
+			<h4>The great part of the Stiefel Game is that all you need to start pass the Stiefel is three people. A game with two people isn’t much of a game, and one person is just plain sad or boring, you pick. But, once there are three people, the game can begin, and it can expand to include any number of people. 6, 8, even 12 people can play, just guarantee that there is enough beer to feed all those mouths.</h4>
+
+			<h2>4. I can’t just take a drink from the Stiefel?</h2>
+			<h4>Unfortunately, there are a few very important rules for drinking from the Stiefel when it is your turn, which could dictate the outcome of the Stiefel round.</h4>
+			<h4>To begin your turn, before picking up the Stiefel, you must tap the surface on which the Stiefel is placed with your elbow (drinking arm preferred) then slap (gently) the Stiefel with the back of your drinking hand. This action announces to the group that your turn is in effect. If anyone else other than you touches the Stiefel after you have completed this process, it is grounds for forfeit and the guilty party has lost the round. There is no time limit for your turn; however, to maintain the atmosphere of the game, it is best to end your turn quickly.</h4>
+			<h4>After you complete the opening move, you must choose how to pick up the Stiefel. The Stiefel CANNOT be rotated once it leaves the surface on which it was placed. Rotation after it is lifted from the surface is grounds for forfeit. There are two positions you can hold the Stiefel prior to lifting it off the the surface, and this is very important so heed:
+			You can choose to drink from the Stiefel with TOE of the Stiefel facing away from you (the drinker) This announces to the group that you will not finish the contents in the Stiefel. The TOE of the Stiefel will point Up when lifted from the surface.</h4>
+			<h4>Or, you can choose to drink from the Stiefel with the TOE of the Stiefel facing toward you (the drinker). This announces to the group that you will finish the Stiefel. The TOE of the Stiefel will point DOWN when lifted from the surface. It is only in this position, with the TOE facing down or towards the drinker, that one can finish the Stiefel. Remember there are two options prior to lifting the Stiefel, but you can take only ONE drink from the Stiefel during your turn, so put on your game face and Good Luck!</h4>
+
+			<h2>5. What happens after I can’t drink any more?</h2>
+			<h4>Well that all depends which way the TOE of the Stiefel was pointed when you picked up the Stiefel. If you chose the prudent course, Numeral I, and drank with the TOE facing up, after reaching your fill, place the Stiefel back on the surface from which the Stiefel was lifted. Repeat Step 4.1 to end your turn. Pass the Stiefel to the person on your right, and hope that you left too much beer for them to finish.</h4>
+			<h4>If you chose to impress everyone at the party and drank from the Stiefel with the TOE facing down, the Stiefel should be dry when you set it back down again. When you set it down, place the Stiefel on its side and watch intensely to watch if any beer drips out of the Stiefel. If no beer escapes the Stiefel, you have successfully finished the Stiefel and now can place the empty Stiefel in the hands of the person to your left to refill and savor your triumph. But, if beer happens to escape from the Stiefel, you will be held responsible for the blunder and considered the loser of the round. You will have refill the Stiefel and probably your pride.</h4>
+
+			<h2>6. Regulations that must not be dismissed.</h2>
+			<h4>There are a few regulations and traditions that should be followed to heighten the enjoyment of the game.</h4>
+			<h4>Penalties. Probably the most fun of the game. These are not the same as forfeit. Forfeits end the round; Penalties are administered during the round and carry over into the subsequent rounds. The principle Game Foul that warrants a penalty is spillage from the Stiefel while one is drinking from the Stiefel, using resulting in a wet face, wet shirt or both. This is where the fun comes in, prior to the start of the game or round, the group should agree upon a certain penalty for this mistake. Some sample suggestions are: for males: must wear a bra for the rest of the round or game; for males/females can only drink beer from a children’s bottle; for males/females for the penalized they must take a shot (of any beverage) before every subsequent turn of theirs; etc. You get the idea, the possibilities are limitless.</h4>
+			<h4>The main reason for spillage of the Stiefel is what has been appropriately coined ‘Glub Glub.’ For those who have seen Beerfest, you should have guessed what this is, if you haven’t it won’t be long until you experience the ‘Glub Glub.’</h4>
+			<h4>Now that you the have rules and regulations, all you need is a Stiefel. Visit the Stiefel Store to get your hands on a Stiefel. After you have played a few rounds of the Stiefel Game, please send in any pictures, modifications to the game rules and penalties, and new names for the ‘Glub Glub.’ As the Stiefel has multiple histories, it can also have multiple versions of the game. Prost !!</h4>
+		</div>
+	</div>
+</body>
+</html>
