@@ -47,7 +47,7 @@ chathamApp.controller('homePageController', ['$scope', '$http', function($scope,
 			url: '/getListOfProfiles',
 		}).success(function(data, status, headers, config){
 
-			console.log("here2");
+			//console.log("here2");
 			// This helps filter bad data
 			var arrayWithNoMissingImages = [];
 			var numberOfIncompleteProfiles = 0;
