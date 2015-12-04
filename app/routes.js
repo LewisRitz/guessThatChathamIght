@@ -146,8 +146,10 @@ module.exports = function(app) {
 	});
 
 	app.get('/getOsamaPage', function(req, res) {
-		res.send("He had alot.. website pending..");
+		//res.send("He had alot.. website pending..");
+		res.render('../app/views/OsamaPage.ejs');
 	});
+
 
 	// app.get('/deleteASpecificProfile', function(req, res) {
 	// 	Profile.find({ _id: '5569e9864575d1ea1365ac21'}).remove().exec();
