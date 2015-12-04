@@ -145,7 +145,7 @@ module.exports = function(app) {
 		Profile.find(function(err, profiles){ if(err){console.log(err); } responseJSON = profiles; res.send(responseJSON); })
 	});
 
-	app.get('getOsamaPage', function(req, res) {
+	app.get('/getOsamaPage', function(req, res) {
 		res.send("He had alot.. website pending..");
 	});
 
